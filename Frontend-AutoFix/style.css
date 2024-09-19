@@ -1,0 +1,680 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: rgb(247, 243, 243);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 100px; /* Adjust height as needed */
+}
+
+.header-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white; /* Icon color */
+    font-size: 24px; /* Adjust icon size */
+    margin-left: 10px; /* Space between company name and icon */
+}
+
+nav {
+    margin-left: auto; /* Pushes navigation to the right */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #28a745; /* Green color on hover */
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+#search {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#search-form {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+#search-form input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-form button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: #218838;
+}
+
+#info {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.info-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.info-item p {
+    color: #666;
+}
+
+#testimonials {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonial {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.testimonial footer {
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Style for the Login/Sign Up button */
+.icon-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Adjust the positioning in the nav */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Aligns all items in the center */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1300px;  /* Adjust width as per your requirement */
+    height: 700px;  /* Adjust height as per your requirement */
+}
+
+.footer-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-container {
+    width: 100%;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    width: 18%; /* Adjust for each section to fit 5 in a row */
+    padding: 10px;
+}
+
+.footer-section h3 {
+    font-size: 18px; /* Reduced heading size */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px; /* Reduced font size */
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #28a745; /* Green color on hover */
+}
+
+@media (max-width: 1200px) {
+    .footer-section {
+        width: 45%; /* Adjust to 2 per row on smaller screens */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    border-top: 1px solid #444;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-weight: bold;
+}
+#about-us {
+    padding: 50px;
+    background-color: #fff;
+    text-align: left;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-content {
+    flex: 1;
+    max-width: 60%;
+}
+
+.about-content h1 {
+    font-size: 42px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.about-image {
+    flex: 1;
+    text-align: right;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .about-image {
+        text-align: center;
+    }
+}
+/* Container styling */
+#find-mechanics .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Heading styling */
+  #find-mechanics h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Paragraph styling */
+  #find-mechanics p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  /* Input and button styling */
+  #find-mechanics-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  #location-input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  #find-mechanics-form button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #find-mechanics-form button:hover {
+    background-color: #218838;
+  }
+  
+  /* Mechanics list styling */
+  #mechanics-list {
+    margin-top: 40px;
+  }
+  
+  .mechanic-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mechanic-item h3 {
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .mechanic-item p {
+    color: #555;
+  }
+  
+  /* Main Section */
+#find-mechanics {
+    background-color: #f9f9f9;
+    padding: 60px 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 800px;
+    padding-top: 0px;
+}
+
+#find-mechanics h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#find-mechanics p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+#find-mechanics-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+#location-input {
+    width: 70%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+#location-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styling */
+.btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Mechanics List Styling */
+#mechanics-list {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden, will be displayed when mechanics are found */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #find-mechanics h2 {
+        font-size: 2rem;
+    }
+
+    #location-input {
+        width: 100%;
+    }
+}
+/* Styling the map container */
+#map {
+    height: 500px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
+#find-mechanics-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#location-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#find-mechanics-form button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#find-mechanics-form button:hover {
+    background-color: #28a745;
+}
+.icon-button {
+    background: none;
+    border: none;
+    color: white; /* Icon color */
+    font-size: 24px; /* Adjust icon size */
+    cursor: pointer;
+    border-radius: 5px; /* Ensure the border radius is consistent */
+    padding: 10px 20px; /* Apply padding if necessary */
+    background-color: #28a745; /* Use the same background color as defined */
+}
+/* Modal Container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease; /* Fade effect */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    position: relative;
+    transform: translateY(-30px); /* Entrance animation */
+    opacity: 0; /* Initial opacity for animation */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Modal Content Animation */
+.modal.show .modal-content {
+    transform: translateY(0); /* Final position */
+    opacity: 1; /* Fully visible */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Modal Header */
+.modal-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Form Toggle */
+#form-toggle {
+    text-align: center;
+    margin-top: 15px;
+    color: #555;
+}
+
+#form-toggle a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#form-toggle a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>AutoFix</h1> <!-- Company Name -->
+                <button id="login-button" class="icon-button">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Find Mechanic</a></li>
+                    <li><a href="#">Become a Mechanic</a></li>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="index2.html">About Us</a></li>
+                     <!-- Login/Sign Up Button -->
+            <li><button id="login-signup-button" class="icon-button">Login / Sign Up</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    
+   
+        <main>
+          
+            <section id="find-mechanics">
+                <div class="container">
+                    <h2>Find Nearby Mechanics</h2>
+                    <p>Enter your location to find skilled mechanics nearby and get your vehicle serviced quickly.</p>
+                    <!-- Find Mechanics Form -->
+                    <form id="find-mechanics-form" autocomplete="on">
+                        <input type="text" id="location-input" placeholder="Enter your city or ZIP code" required autocomplete="off">
+                        <button type="submit">Find Mechanics</button>
+                        <button type="button" id="use-my-location">Use My Location</button>
+                    </form>
+                  
+                    <!-- Mechanics List -->
+                    <div id="mechanics-list">
+                        <!-- List of mechanics will be displayed here after search -->
+                    </div>
+                    
+                     <!-- Map Container -->
+            <div id="map" style="height: 500px;"></div>
+                </div>
+            </section>
+        
+            
+                        
+        </main>
+
+        <section id="about-us">
+            <div class="about-container">
+                <div class="about-content">
+                    <h1>About Us</h1>
+                    <p>Welcome to <strong>AutoFix</strong>! Founded by <strong>Gyanendra Sharma</strong>, we are a passionate team of young tech enthusiasts pursuing our <strong>BCA (Bachelor of Computer Applications)</strong> in our 5th semester.</p>
+                    <p>Our core team consists of <strong>Vansh Batra</strong>, <strong>Kartik Gupta</strong>, <strong>Ajay Jha</strong>, and <strong>Vivek Gautam</strong>, each bringing unique skills and a shared vision to revolutionize the way vehicle maintenance is handled.</p>
+                    <p>At <strong>AutoFix</strong>, we aim to simplify vehicle servicing by connecting customers with reliable mechanics through an easy-to-use web platform. Our mission is to make auto maintenance hassle-free, efficient, and accessible to everyone.</p>
+                    <p>We are committed to continuously improving our platform to meet the needs of both customers and mechanics, providing valuable service and building lasting trust.</p>
+                </div>
+    
+                <div class="about-image">
+                    <img src="team.jpg" alt="AutoFix Team">
+                </div>
+            </div>
+        </section>
+        <footer>  
+            <div class="footer-header">
+                <h1>AutoFix</h1>
+            </div>
+        
+            <div class="footer-container">
+                <!-- First Row -->
+                <div class="footer-row">
+                    <!-- Company Section -->
+                    <div class="footer-section">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Leadership</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Investors</a></li>
+                            <li><a href="#">Newsroom</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Customer Support Section -->
+                    <div class="footer-section">
+                        <h3>Customer Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Live Chat</a></li>
+                            <li><a href="#">Feedback</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Services Section -->
+                    <div class="footer-section">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Find a Mechanic</a></li>
+                            <li><a href="#">Become a Mechanic</a></li>
+                            <li><a href="#">Service Plans</a></li>
+                            <li><a href="#">Maintenance Tips</a></li>
+                            <li><a href="#">Book an Appointment</a></li>
+                            <li><a href="#">Emergency Services</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Product Features Section -->
+                    <div class="footer-section">
+                        <h3>Product Features</h3>
+                        <ul>
+                            <li><a href="#">AutoFix App</a></li>
+                            <li><a href="#">Service Coverage</a></li>
+                            <li><a href="#">Vehicle Types Supported</a></li>
+                            <li><a href="#">Parts & Accessories</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- User Engagement Section -->
+                    <div class="footer-section">
+                        <h3>User Engagement</h3>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Community Forum</a></li>
+                            <li><a href="#">Events</a></li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Second Row -->
+                <div class="footer-row">
+                    <!-- Social Media Links Section -->
+                    <div class="footer-section">
+                        <h3>Social Media</h3>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">YouTube</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Legal Information Section -->
+                    <div class="footer-section">
+                        <h3>Legal Information</h3>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Global Reach Section -->
+                    <div class="footer-section">
+                        <h3>Global Reach</h3>
+                        <ul>
+                            <li><a href="#">Language Selector</a></li>
+                            <li><a href="#">Country-Specific Services</a></li>
+                            <li><a href="#">Service Expansion</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Sustainability Section -->
+                    <div class="footer-section">
+                        <h3>Sustainability</h3>
+                        <ul>
+                            <li><a href="#">Environmental Impact</a></li>
+                            <li><a href="#">Diversity & Inclusion</a></li>
+                            <li><a href="#">Sustainability Reports</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Referral Programs Section -->
+                    <div class="footer-section">
+                        <h3>Referral Programs</h3>
+                        <ul>
+                            <li><a href="#">Refer a Friend</a></li>
+                            <li><a href="#">Affiliate Program</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <!-- Existing Footer Content -->
+                <div class="footer-container">
+                    <!-- Your existing footer rows go here -->
+                    <!-- Add your Company, Customer Support, Services, etc. -->
+            
+                    <!-- Copyright Section -->
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 AutoFix. All rights reserved.</p>
+                    </div>
+                </div>
+           
+            
+        </footer>
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <div class="modal-header">
+            <h2>Login</h2>
+        </div>
+        <form id="loginForm">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+            
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <div id="form-toggle">
+            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('signupModal')">&times;</span>
+        <div class="modal-header">
+            <h2>Sign Up</h2>
+        </div>
+        <form id="signupForm">
+            <label for="signupName">Name:</label>
+            <input type="text" id="signupName" name="signupName" required>
+            
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="signupEmail" required>
+            
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="signupPassword" required>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        <div id="form-toggle">
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+</div>
+
+    <!-- Closing body tag -->
+
+        
+
+    
+       
+
+    <!-- Linking the external JavaScript file -->
+    <script src="scripts.js" defer></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</body>
+
+</html>
