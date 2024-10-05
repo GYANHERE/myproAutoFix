@@ -136,3 +136,35 @@ function showLogin() {
     closeModal('signupModal');
     openModal('loginModal');
 }
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    fetch('http://localhost:3000/api/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert(data.message); // Display the success message
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+fetch('http://localhost:3000/api/data')
+  .then(response => response.json())
+  .then(data => {
+      console.log('Data fetched from /api/data:', data);
+      // You can also display the data on your page if needed
+      const dataContainer = document.createElement('div');
+      dataContainer.textContent = `Data from server: ${data.message}`;
+      document.body.appendChild(dataContainer);
+  })
+  .catch(error => console.error('Error:', error));
