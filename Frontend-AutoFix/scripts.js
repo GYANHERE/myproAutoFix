@@ -1,35 +1,41 @@
 console.log('Script loaded');
 console.log("JavaScript is successfully linked!");
 
-// Form validation and submission
-loginForm.addEventListener('submit', async function(e) {
+// Get the forms
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+
+// Form validation and submission for Login
+loginForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (validateForm(loginForm)) {
         const data = {
-            username: loginForm.username.value,
-            password: loginForm.password.value
+            email: loginForm.loginEmail.value,
+            password: loginForm.loginPassword.value
         };
-        await handleFormSubmission('http://localhost:3000/login', data);
+        await handleFormSubmission('http://localhost:3000/login', data, 'login');
     }
 });
 
-signupForm.addEventListener('submit', async function(e) {
+// Form validation and submission for Signup
+signupForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (validateForm(signupForm)) {
         const data = {
-            username: signupForm['new-username'].value,
-            password: signupForm['new-password'].value
+            name: signupForm.signupName.value,
+            email: signupForm.signupEmail.value,
+            password: signupForm.signupPassword.value
         };
-        await handleFormSubmission('http://localhost:3000/signup', data);
+        await handleFormSubmission('http://localhost:3000/signup', data, 'signup');
     }
 });
 
 // Validation function
 function validateForm(form) {
-    const username = form.querySelector('input[name="username"]').value;
-    const password = form.querySelector('input[name="password"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const password = form.querySelector('input[type="password"]').value;
 
-    if (username === '' || password === '') {
+    if (email === '' || password === '') {
         alert('Please fill out all fields.');
         return false;
     }
@@ -38,18 +44,58 @@ function validateForm(form) {
 }
 
 // Example AJAX function to handle form submission
-async function handleFormSubmission(url, data) {
+async function handleFormSubmission(url, data, type) {
     try {
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
-        const result = await response.text();
-        alert(result);
+
+        const result = await response.json(); // Expecting JSON response
+
+        if (!response.ok) {
+            throw new Error(result.message || 'Network response was not ok');
+        }
+
+        if (result.success) {
+            // Redirect to the user dashboard if login or signup was successful
+            window.location.href = '/dashboard.html'; // Update this to your dashboard URL
+        } else {
+            alert(result.message); // Show error message from the backend
+        }
     } catch (error) {
-        alert('An error occurred.');
+        alert('An error occurred: ' + error.message);
     }
+}
+
+// Function to show a specific modal
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+    document.getElementById(modalId).classList.add('show');
+}
+
+// Function to close a specific modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.getElementById(modalId).classList.remove('show');
+}
+
+// Show login modal
+document.getElementById('login-signup-button').addEventListener('click', function () {
+    openModal('loginModal');
+});
+
+// Show signup modal
+function showSignup() {
+    closeModal('loginModal');
+    openModal('signupModal');
+}
+
+// Show login modal from signup
+function showLogin() {
+    closeModal('signupModal');
+    openModal('loginModal');
 }
 
 // Function to simulate finding mechanics based on location
@@ -108,63 +154,41 @@ document.getElementById('use-my-location').addEventListener('click', function() 
         alert("Geolocation is not supported by this browser.");
     }
 });
-// Function to show a specific modal
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'flex';
-    document.getElementById(modalId).classList.add('show');
+
+// Function to search mechanics based on location
+function searchMechanics(location) {
+    fetch(`http://localhost:3000/api/find-mechanics?location=${location}`)
+        .then(response => response.json())
+        .then(data => {
+            displayMechanicsList(data.mechanics);
+            displayMechanicsOnMap(data.mechanics);
+        })
+        .catch(error => {
+            console.error('Error fetching mechanics:', error);
+        });
 }
 
-// Function to close a specific modal
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.getElementById(modalId).classList.remove('show');
-}
-
-// Show login modal
-document.getElementById('login-signup-button').addEventListener('click', function() {
-    openModal('loginModal');
-});
-
-// Show signup modal
-function showSignup() {
-    closeModal('loginModal');
-    openModal('signupModal');
-}
-
-// Show login modal from signup
-function showLogin() {
-    closeModal('signupModal');
-    openModal('loginModal');
-}
-document.getElementById('myForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    fetch('http://localhost:3000/api/submit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-        alert(data.message); // Display the success message
-    })
-    .catch(error => {
-        console.error('Error:', error);
+// Function to display mechanics list
+function displayMechanicsList(mechanics) {
+    const list = document.getElementById('mechanics-list');
+    list.innerHTML = ''; // Clear previous results
+    mechanics.forEach(mechanic => {
+        const mechanicItem = document.createElement('div');
+        mechanicItem.className = 'mechanic-item';
+        mechanicItem.innerHTML = `
+            <h3>${mechanic.name}</h3>
+            <p>Rating: ${mechanic.rating}</p>
+            <p>Distance: ${mechanic.distance} km</p>
+            <button onclick="bookMechanic(${mechanic.id})">Book Mechanic</button>
+        `;
+        list.appendChild(mechanicItem);
     });
-});
-fetch('http://localhost:3000/api/data')
-  .then(response => response.json())
-  .then(data => {
-      console.log('Data fetched from /api/data:', data);
-      // You can also display the data on your page if needed
-      const dataContainer = document.createElement('div');
-      dataContainer.textContent = `Data from server: ${data.message}`;
-      document.body.appendChild(dataContainer);
-  })
-  .catch(error => console.error('Error:', error));
+}
+
+// Function to display mechanics on the map
+function displayMechanicsOnMap(mechanics) {
+    mechanics.forEach(mechanic => {
+        const marker = L.marker([mechanic.latitude, mechanic.longitude]).addTo(map);
+        marker.bindPopup(`<b>${mechanic.name}</b><br>Rating: ${mechanic.rating}`).openPopup();
+    });
+}

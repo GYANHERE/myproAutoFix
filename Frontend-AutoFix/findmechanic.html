@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoFix</title>
+    <title>Find a Mechanic</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   <!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-</head>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+
+  </style>
+       
+
+    <!-- Include Leaflet.js for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+</head>
 <body>
     <header>
         <div class="header-container">
@@ -22,7 +37,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="findmechanic.html">Find Mechanic</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
                     <li><a href="customer_support.html">Customer Support</a></li>
                     <li><a href="about_us.html">About Us</a></li>
@@ -32,51 +47,8 @@
             </nav>
         </div>
     </header>
-    
-    
    
-        <main>
-          
-            <section id="find-mechanics">
-                <div class="container">
-                    <h2>Find Nearby Mechanics</h2>
-                    <p>Enter your location to find skilled mechanics nearby and get your vehicle serviced quickly.</p>
-                    <!-- Find Mechanics Form -->
-                    <form id="find-mechanics-form" autocomplete="on">
-                        <input type="text" id="location-input" placeholder="Enter your city or ZIP code" required autocomplete="off">
-                        <button type="submit">Find Mechanics</button>
-                        <button type="button" id="use-my-location">Use My Location</button>
-                    </form>
-                  
-                    <!-- Mechanics List -->
-                    <div id="mechanics-list">
-                        <!-- List of mechanics will be displayed here after search -->
-                    </div>
-                    
-                     <!-- Map Container -->
-            <div id="map" style="height: 500px;"></div>
-                </div>
-            </section>
-        
-            
-                        
-        </main>
 
-        <section id="about-us">
-            <div class="about-container">
-                <div class="about-content">
-                    <h1>About Us</h1>
-                    <p>Welcome to <strong>AutoFix</strong>! Founded by <strong>Gyanendra Sharma</strong>, we are a passionate team of young tech enthusiasts pursuing our <strong>BCA (Bachelor of Computer Applications)</strong> in our 5th semester.</p>
-                    <p>Our core team consists of <strong>Vansh Batra</strong>, <strong>Kartik Gupta</strong>, <strong>Ajay Jha</strong>, and <strong>Vivek Gautam</strong>, each bringing unique skills and a shared vision to revolutionize the way vehicle maintenance is handled.</p>
-                    <p>At <strong>AutoFix</strong>, we aim to simplify vehicle servicing by connecting customers with reliable mechanics through an easy-to-use web platform. Our mission is to make auto maintenance hassle-free, efficient, and accessible to everyone.</p>
-                    <p>We are committed to continuously improving our platform to meet the needs of both customers and mechanics, providing valuable service and building lasting trust.</p>
-                </div>
-    
-                <div class="about-image">
-                    <img src="team.jpg" alt="AutoFix Team">
-                </div>
-            </div>
-        </section>
         <footer>  
             <div class="footer-header">
                 <h1>AutoFix</h1>
@@ -216,119 +188,7 @@
            
             
         </footer>
-<!-- Login Modal -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('loginModal')">&times;</span>
-        <div class="modal-header">
-            <h2>Login</h2>
-        </div>
-        <form id="loginForm">
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="loginEmail" required>
-            
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required>
-            
-            <button type="submit">Login</button>
-        </form>
-        <div id="form-toggle">
-            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
-        </div>
-    </div>
-</div>
-
-<!-- Signup Modal -->
-<div id="signupModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('signupModal')">&times;</span>
-        <div class="modal-header">
-            <h2>Sign Up</h2>
-        </div>
-        <form id="signupForm">
-            <label for="signupName">Name:</label>
-            <input type="text" id="signupName" name="signupName" required>
-            
-            <label for="signupEmail">Email:</label>
-            <input type="email" id="signupEmail" name="signupEmail" required>
-            
-            <label for="signupPassword">Password:</label>
-            <input type="password" id="signupPassword" name="signupPassword" required>
-            
-            <button type="submit">Sign Up</button>
-        </form>
-        <div id="form-toggle">
-            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
-        </div>
-    </div>
-</div>
- <!-- Include your JavaScript here -->
- <script>
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        fetch('http://localhost:3000/api/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert(data.message);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    });
-</script>
-<script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-
-        fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            if (data.message === 'Login successful') {
-                // Redirect to the home page after successful login
-                window.location.href = '/home.html';
-            } else {
-                alert('Invalid credentials');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    });
-</script>
-
-    <!-- Closing body tag -->
-
         
-
-    
-       
-
-    <!-- Linking the external JavaScript file -->
-    <script src="scripts.js" defer></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
+  
 </body>
-
 </html>

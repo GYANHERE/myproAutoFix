@@ -1,16 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoFix</title>
+    <title>Customer Support</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   <!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-</head>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+main {
+    background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #4CAF50; /* Main heading color */
+    border-bottom: 2px solid #4CAF50; /* Underline effect */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+main h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+main p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+main ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+main li {
+    margin-bottom: 0.5rem;
+}
+
+main strong {
+    color: #4CAF50; /* Emphasize important text */
+}
+
+address {
+    font-style: normal;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    border-left: 4px solid #4CAF50; /* Highlight the address */
+}
+
+
+
+
+  </style>
+       
+
+    <!-- Include Leaflet.js for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+</head>
 <body>
     <header>
         <div class="header-container">
@@ -22,9 +89,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="findmechanic.html">Find Mechanic</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
-                    <li><a href="customer_support.html">Customer Support</a></li>
+                    <li><a href="findmechanic.html">Find Mechanic</a></li>
                     <li><a href="about_us.html">About Us</a></li>
                      <!-- Login/Sign Up Button -->
             <li><button id="login-signup-button" class="icon-button">Login / Sign Up</button></li>
@@ -32,51 +99,66 @@
             </nav>
         </div>
     </header>
-    
+
+    <main>
+        <section id="customer-support">
+            <h2>Customer Support</h2>
+            <p>
+                At <strong>AutoFix</strong>, we understand that keeping your vehicle in top shape requires more than just skilled mechanics — it requires a commitment to excellent customer service. That’s why we’ve made it our mission to provide an accessible, reliable, and efficient support system for every customer. Whether you’re using our platform for the first time or are a long-term user, our customer support team is here to ensure your experience is seamless and stress-free. Below, we outline the different ways you can reach out to us and get the help you need.
+            </p>
+            <h3>1. Help Center: Your Go-To Resource</h3>
+            <p>
+                Our <strong>Help Center</strong> is your first stop for quick solutions to common questions and issues. We have built a comprehensive library of articles and guides that cover everything from booking a mechanic to managing your appointments. You can find answers to frequently asked questions (FAQs) on a wide range of topics including:
+            </p>
+            <ul>
+                <li><strong>Booking Services</strong>: Step-by-step instructions on how to book a mechanic for any type of vehicle.</li>
+                <li><strong>Account Management</strong>: Learn how to create, update, or delete your AutoFix account.</li>
+                <li><strong>Payment Options</strong>: Details on available payment methods, pricing, and how to apply discounts or coupons.</li>
+                <li><strong>Appointment Rescheduling</strong>: Find out how to reschedule or cancel your appointments with ease.</li>
+                <li><strong>Service Plans</strong>: Information about our range of service plans, including how to subscribe and what’s covered.</li>
+            </ul>
+            <p>Our Help Center is available 24/7, so you can access important information any time you need it, from anywhere.</p>
+            <h3>2. Contact Us: Direct Assistance When You Need It</h3>
+            <p>
+                If you prefer direct assistance, our customer support team is here to help. We offer several ways to get in touch, ensuring that you receive personalized and timely support.
+            </p>
+            <ul>
+                <li><strong>Email Support</strong>: Send us an email at <strong>support.autofix@gmail.com</strong> with your inquiry, and one of our team members will respond promptly. We aim to resolve most email inquiries within 24 hours.</li>
+                <li><strong>Phone Support</strong>: For immediate help, give us a call during our business hours at <strong>(555) 987-6543</strong>.</li>
+            </ul>
+            <h3>3. Live Chat: Real-Time Support</h3>
+            <p>For fast, real-time support, use our <strong>Live Chat</strong> feature. This service allows you to connect with a customer service representative instantly for help with a variety of issues.</p>
+            <ul>
+                <li>Troubleshooting booking problems</li>
+                <li>Asking questions about services and mechanic availability</li>
+                <li>Getting details about ongoing promotions or service packages</li>
+                <li>Resolving payment or refund concerns</li>
+            </ul>
+            <h3>4. Feedback: We Value Your Opinions</h3>
+            <p>We believe in continuous improvement. Your feedback is instrumental in helping us enhance the quality of our services and platform.</p>
+            <ul>
+                <li><strong>Feedback Form</strong>: Submit feedback, suggestions, or concerns via our form in the Customer Support section.</li>
+                <li><strong>Service Ratings</strong>: Rate your mechanic and leave comments after each service to help improve our offerings.</li>
+            </ul>
+            <h3>5. Terms & Conditions: Transparency and Trust</h3>
+            <p>We encourage you to familiarize yourself with our <strong>Terms & Conditions</strong>, which outline the scope of services we offer, your rights as a customer, and other important details.</p>
+            <h3>6. Privacy Policy: Your Data, Our Priority</h3>
+            <p>Our <strong>Privacy Policy</strong> explains how we collect, use, and protect your personal information. We take your privacy seriously and ensure that your data is stored securely.</p>
+            <h3>7. Refund & Cancellation Policies: Hassle-Free Resolutions</h3>
+            <p>If you need to cancel or reschedule a booking, our <strong>Refund & Cancellation Policy</strong> outlines the process. We aim to make refunds and cancellations as straightforward as possible.</p>
+            <h3>8. Our Address: Visit Us</h3>
+            <p>You can find us at:</p>
+            <address>
+                <strong>AutoFix Customer Support Center</strong><br>
+                Dada nagar<br>
+                kanpur , uttar pradesh<br>
+                India
+            </address>
+        </section>
+    </main>
     
    
-        <main>
-          
-            <section id="find-mechanics">
-                <div class="container">
-                    <h2>Find Nearby Mechanics</h2>
-                    <p>Enter your location to find skilled mechanics nearby and get your vehicle serviced quickly.</p>
-                    <!-- Find Mechanics Form -->
-                    <form id="find-mechanics-form" autocomplete="on">
-                        <input type="text" id="location-input" placeholder="Enter your city or ZIP code" required autocomplete="off">
-                        <button type="submit">Find Mechanics</button>
-                        <button type="button" id="use-my-location">Use My Location</button>
-                    </form>
-                  
-                    <!-- Mechanics List -->
-                    <div id="mechanics-list">
-                        <!-- List of mechanics will be displayed here after search -->
-                    </div>
-                    
-                     <!-- Map Container -->
-            <div id="map" style="height: 500px;"></div>
-                </div>
-            </section>
-        
-            
-                        
-        </main>
 
-        <section id="about-us">
-            <div class="about-container">
-                <div class="about-content">
-                    <h1>About Us</h1>
-                    <p>Welcome to <strong>AutoFix</strong>! Founded by <strong>Gyanendra Sharma</strong>, we are a passionate team of young tech enthusiasts pursuing our <strong>BCA (Bachelor of Computer Applications)</strong> in our 5th semester.</p>
-                    <p>Our core team consists of <strong>Vansh Batra</strong>, <strong>Kartik Gupta</strong>, <strong>Ajay Jha</strong>, and <strong>Vivek Gautam</strong>, each bringing unique skills and a shared vision to revolutionize the way vehicle maintenance is handled.</p>
-                    <p>At <strong>AutoFix</strong>, we aim to simplify vehicle servicing by connecting customers with reliable mechanics through an easy-to-use web platform. Our mission is to make auto maintenance hassle-free, efficient, and accessible to everyone.</p>
-                    <p>We are committed to continuously improving our platform to meet the needs of both customers and mechanics, providing valuable service and building lasting trust.</p>
-                </div>
-    
-                <div class="about-image">
-                    <img src="team.jpg" alt="AutoFix Team">
-                </div>
-            </div>
-        </section>
         <footer>  
             <div class="footer-header">
                 <h1>AutoFix</h1>
@@ -216,119 +298,7 @@
            
             
         </footer>
-<!-- Login Modal -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('loginModal')">&times;</span>
-        <div class="modal-header">
-            <h2>Login</h2>
-        </div>
-        <form id="loginForm">
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="loginEmail" required>
-            
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required>
-            
-            <button type="submit">Login</button>
-        </form>
-        <div id="form-toggle">
-            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
-        </div>
-    </div>
-</div>
-
-<!-- Signup Modal -->
-<div id="signupModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('signupModal')">&times;</span>
-        <div class="modal-header">
-            <h2>Sign Up</h2>
-        </div>
-        <form id="signupForm">
-            <label for="signupName">Name:</label>
-            <input type="text" id="signupName" name="signupName" required>
-            
-            <label for="signupEmail">Email:</label>
-            <input type="email" id="signupEmail" name="signupEmail" required>
-            
-            <label for="signupPassword">Password:</label>
-            <input type="password" id="signupPassword" name="signupPassword" required>
-            
-            <button type="submit">Sign Up</button>
-        </form>
-        <div id="form-toggle">
-            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
-        </div>
-    </div>
-</div>
- <!-- Include your JavaScript here -->
- <script>
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        fetch('http://localhost:3000/api/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert(data.message);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    });
-</script>
-<script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-
-        fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            if (data.message === 'Login successful') {
-                // Redirect to the home page after successful login
-                window.location.href = '/home.html';
-            } else {
-                alert('Invalid credentials');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    });
-</script>
-
-    <!-- Closing body tag -->
-
         
-
-    
-       
-
-    <!-- Linking the external JavaScript file -->
-    <script src="scripts.js" defer></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
+  
 </body>
-
 </html>

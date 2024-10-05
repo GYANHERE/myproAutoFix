@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AutoFix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<style>
+    /* About Us Styling */
+#about-us {
+    background-color: #f8f9fa;
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    color: #333;
+}
+
+.about-content h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content h2 {
+    color: #28a745;
+    font-size: 28px;
+    margin: 20px 0;
+    border-left: 4px solid #28a745;
+    padding-left: 10px;
+}
+
+.about-content p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.about-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-content ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.about-content strong {
+    color: #28a745;
+}
+
+/* Adding a subtle box shadow for content */
+.about-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content h1 {
+        font-size: 30px;
+    }
+
+    .about-content h2 {
+        font-size: 24px;
+    }
+
+    .about-content p, .about-content ul li {
+        font-size: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>AutoFix</h1> <!-- Company Name -->
+                <button id="login-button" class="icon-button">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="findmechanic.html">Find Mechanic</a></li>
+                    <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
+                    <li><a href="customer_support.html">Customer Support</a></li>
+                   
+                    <!-- Login/Sign Up Button -->
+                    <li><button id="login-signup-button" class="icon-button">Login / Sign Up</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <main id="about-us">
+        <section class="about-content">
+            <h1>About Us</h1>
+            <p><strong>Welcome to AutoFix</strong>, your one-stop solution for effortless vehicle maintenance and repair services. Founded by <strong>Gyanendra Sharma</strong>, AutoFix was created with a vision to transform the traditional auto repair industry by integrating cutting-edge technology with the convenience of modern digital solutions. Our journey began as a group of passionate tech enthusiasts, all currently pursuing our <strong>Bachelor of Computer Applications (BCA)</strong> in the 5th semester.</p>
+    
+            <h2>Our Core Team</h2>
+            <ul>
+                <li><strong>Vansh Batra:</strong> A strategic thinker and problem solver with expertise in front-end development, ensuring a seamless user experience on our platform.</li>
+                <li><strong>Kartik Gupta:</strong> A backend specialist, responsible for ensuring the robustness and efficiency of our systems.</li>
+                <li><strong>Ajay Jha:</strong> A database wizard who guarantees that our platform can handle large volumes of data with accuracy and speed.</li>
+                <li><strong>Vivek Gautam:</strong> A visionary in UI/UX design, crafting an intuitive and engaging interface for both customers and mechanics.</li>
+            </ul>
+    
+            <h2>Our Mission</h2>
+            <p>At AutoFix, our mission is to <strong>simplify the vehicle repair process</strong> by bridging the gap between vehicle owners and trusted mechanics. We aim to make vehicle maintenance:</p>
+            <ul>
+                <li><strong>Hassle-free:</strong> No more endless searches for a reliable mechanic or spending hours in a repair shop.</li>
+                <li><strong>Efficient:</strong> By using our platform, customers can find and book a mechanic with just a few clicks.</li>
+                <li><strong>Accessible:</strong> We are committed to ensuring that anyone, regardless of their location or vehicle type, can access top-notch repair services.</li>
+            </ul>
+    
+            <h2>Why Choose AutoFix?</h2>
+            <ul>
+                <li><strong>Easy-to-Use Platform:</strong> Our user-friendly web app allows you to quickly find nearby mechanics, book services, and even choose specific repair types based on your vehicle’s needs.</li>
+                <li><strong>Trusted Mechanics:</strong> We work with a network of certified and experienced mechanics, ensuring that you receive reliable service every time.</li>
+                <li><strong>Transparent Pricing:</strong> At AutoFix, we believe in transparency. You’ll know the estimated cost upfront, avoiding unexpected charges or hidden fees.</li>
+                <li><strong>Customer-Centric Approach:</strong> Your satisfaction is our priority. We listen to feedback and continuously improve our platform to better serve our users.</li>
+                <li><strong>Innovative Features:</strong> From real-time tracking to reminders for future maintenance, our platform is designed to make your vehicle care experience smoother than ever.</li>
+            </ul>
+    
+            <h2>Our Vision</h2>
+            <p>Our long-term vision is to become the <strong>leading platform for vehicle maintenance</strong> globally. We envision a future where AutoFix becomes synonymous with <strong>trust, efficiency, and innovation</strong> in the automotive services industry.</p>
+    
+            <h2>Building Lasting Relationships</h2>
+            <p>At AutoFix, we believe in building <strong>strong relationships</strong> with both customers and mechanics. We aim to provide mechanics with opportunities to grow their business while offering customers an unparalleled service experience.</p>
+    
+            <h2>Join Us on This Journey</h2>
+            <p>As we continue to grow and expand, we invite you to be a part of the AutoFix journey. Whether you’re a customer in need of a mechanic, or a mechanic looking to reach more clients, we are here to make your experience simpler and better.</p>
+        </section>
+    </main>
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-header">
+            <h1>AutoFix</h1>
+        </div>
+
+        <div class="footer-container">
+            <!-- First Row -->
+            <div class="footer-row">
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about_us.html">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Support Section -->
+                <div class="footer-section">
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Find a Mechanic</a></li>
+                        <li><a href="#">Become a Mechanic</a></li>
+                        <li><a href="#">Service Plans</a></li>
+                        <li><a href="#">Maintenance Tips</a></li>
+                        <li><a href="#">Book an Appointment</a></li>
+                        <li><a href="#">Emergency Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Features Section -->
+                <div class="footer-section">
+                    <h3>Product Features</h3>
+                    <ul>
+                        <li><a href="#">AutoFix App</a></li>
+                        <li><a href="#">Service Coverage</a></li>
+                        <li><a href="#">Vehicle Types Supported</a></li>
+                        <li><a href="#">Parts & Accessories</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <!-- User Engagement Section -->
+                <div class="footer-section">
+                    <h3>User Engagement</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="footer-row">
+                <!-- Social Media Links Section -->
+                <div class="footer-section">
+                    <h3>Social Media</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Information Section -->
+                <div class="footer-section">
+                    <h3>Legal Information</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <!-- Global Reach Section -->
+                <div class="footer-section">
+                    <h3>Global Reach</h3>
+                    <ul>
+                        <li><a href="#">Language Selector</a></li>
+                        <li><a href="#">Country-Specific Services</a></li>
+                        <li><a href="#">Service Expansion</a></li>
+                    </ul>
+                </div>
+
+                <!-- Sustainability Section -->
+                <div class="footer-section">
+                    <h3>Sustainability</h3>
+                    <ul>
+                        <li><a href="#">Environmental Impact</a></li>
+                        <li><a href="#">Diversity & Inclusion</a></li>
+                        <li><a href="#">Sustainability Reports</a></li>
+                    </ul>
+                </div>
+
+                <!-- Referral Programs Section -->
+                <div class="footer-section">
+                    <h3>Referral Programs</h3>
+                    <ul>
+                        <li><a href="#">Refer a Friend</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 AutoFix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Modals -->
+    <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-dashboard</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+
+</style>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>AutoFix</h1> <!-- Company Name -->
+                <button id="login-button" class="icon-button">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="findmechanic.html">Find Mechanic</a></li>
+                    <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
+                    <li><a href="customer_support.html">Customer Support</a></li>
+                   
+                    <!-- Login/Logout Button -->
+                    <li><button id="login-signup-button" class="icon-button" onclick="toggleLogin()">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+
+</main>
+
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-header">
+            <h1>AutoFix</h1>
+        </div>
+
+        <div class="footer-container">
+            <!-- First Row -->
+            <div class="footer-row">
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about_us.html">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Support Section -->
+                <div class="footer-section">
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Find a Mechanic</a></li>
+                        <li><a href="#">Become a Mechanic</a></li>
+                        <li><a href="#">Service Plans</a></li>
+                        <li><a href="#">Maintenance Tips</a></li>
+                        <li><a href="#">Book an Appointment</a></li>
+                        <li><a href="#">Emergency Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Features Section -->
+                <div class="footer-section">
+                    <h3>Product Features</h3>
+                    <ul>
+                        <li><a href="#">AutoFix App</a></li>
+                        <li><a href="#">Service Coverage</a></li>
+                        <li><a href="#">Vehicle Types Supported</a></li>
+                        <li><a href="#">Parts & Accessories</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <!-- User Engagement Section -->
+                <div class="footer-section">
+                    <h3>User Engagement</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="footer-row">
+                <!-- Social Media Links Section -->
+                <div class="footer-section">
+                    <h3>Social Media</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Information Section -->
+                <div class="footer-section">
+                    <h3>Legal Information</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <!-- Global Reach Section -->
+                <div class="footer-section">
+                    <h3>Global Reach</h3>
+                    <ul>
+                        <li><a href="#">Language Selector</a></li>
+                        <li><a href="#">Country-Specific Services</a></li>
+                        <li><a href="#">Service Expansion</a></li>
+                    </ul>
+                </div>
+
+                <!-- Sustainability Section -->
+                <div class="footer-section">
+                    <h3>Sustainability</h3>
+                    <ul>
+                        <li><a href="#">Environmental Impact</a></li>
+                        <li><a href="#">Diversity & Inclusion</a></li>
+                        <li><a href="#">Sustainability Reports</a></li>
+                    </ul>
+                </div>
+
+                <!-- Referral Programs Section -->
+                <div class="footer-section">
+                    <h3>Referral Programs</h3>
+                    <ul>
+                        <li><a href="#">Refer a Friend</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="footer-copyright">
+                <p>&copy; 2024 AutoFix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<!-- JavaScript for Modals and Login/Logout -->
+<script src="scripts.js"></script>
+<script>
+    // Simulated login state
+    let isLoggedIn = false; // Change this to true if the user is logged in
+
+    function toggleLogin() {
+        if (isLoggedIn) {
+            logout();
+        } else {
+            login();
+        }
+    }
+
+    function login() {
+        // Simulated login logic
+        isLoggedIn = true;
+        document.getElementById('login-signup-button').innerText = "Logout";
+        alert("Login successful! Redirecting to your dashboard.");
+        // Redirect to the user dashboard
+        window.location.href = "/user-dashboard"; // Updated to match the new route
+    }
+
+    function logout() {
+        // Simulated logout logic
+        isLoggedIn = false;
+        document.getElementById('login-signup-button').innerText = "Login / Sign Up";
+        alert("You have been logged out.");
+        // Optionally redirect to the homepage or another page
+        window.location.href = "index.html"; // Redirect to home page after logout
+    }
+
+    // Update button text based on login state on page load
+    window.onload = function() {
+        if (isLoggedIn) {
+            document.getElementById('login-signup-button').innerText = "Logout";
+        }
+    };
+</script>
+
+   
+</body>
+</html>
