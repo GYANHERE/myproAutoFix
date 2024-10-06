@@ -22,7 +22,7 @@
                     <li><a href="findmechanic.html">Find Mechanic</a></li>
                     <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
                     <li><a href="customer_support.html">Customer Support</a></li>
-                    <li><button id="login-signup-button" class="icon-button" onclick="toggleLogin()">Login / Sign Up</button></li>
+                    <li><button id="login-signup-button" class="icon-button" onclick="toggleLogin()">Logout</button></li>
                 </ul>
             </nav>
         </div>
@@ -165,7 +165,6 @@
             </div>
         </div>
     </footer>
-
     <!-- JavaScript for Modals and Login/Logout -->
     <script src="scripts.js"></script>
     <script>
@@ -183,27 +182,28 @@
         function login() {
             // Simulated login logic
             isLoggedIn = true;
-            document.getElementById('login-signup-button').innerText = "Logout";
-            alert("Login successful! Redirecting to your Homepage.");
-            // Redirect to the user dashboard
-            window.location.href = "/landing-page"; // Updated to match the new route
+            document.getElementById('login-signup-button').innerText = "Logout"; // Change button text
+            alert("Login successful! Welcome to AutoFix.");
+            // No redirect needed, stays on landing page
         }
 
         function logout() {
             // Simulated logout logic
             isLoggedIn = false;
-            document.getElementById('login-signup-button').innerText = "Login / Sign Up";
+            document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Change button text back
             alert("You have been logged out.");
-            // Optionally redirect to the homepage or another page
-            window.location.href = "index.html"; // Redirect to home page after logout
+            // Redirect to home page after logout
+            window.location.href = "index.html"; // Redirect to index.html
         }
 
         // Update button text based on login state on page load
         window.onload = function() {
             if (isLoggedIn) {
-                document.getElementById('login-signup-button').innerText = "Logout";
+                document.getElementById('login-signup-button').innerText = "Logout"; // Change to Logout if logged in
             }
         };
     </script>
+
+   
 </body>
 </html>
