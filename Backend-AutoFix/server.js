@@ -47,12 +47,12 @@ db.connect((err) => {
     }
 });
 
-// Serve the user dashboard page (only if user is logged in)
-app.get('/user-dashboard', (req, res) => {
+// Serve the landing page (only if user is logged in)
+app.get('/landing-page', (req, res) => {
     if (req.session.loggedIn) {
-        res.sendFile(path.join(__dirname, '../Frontend-AutoFix/user-dashboard.html'));
+        res.sendFile(path.join(__dirname, '../Frontend-AutoFix/landing-page.html'));
     } else {
-        res.redirect('/');
+        res.redirect('/'); // Redirect to home page if not logged in
     }
 });
 
@@ -136,7 +136,7 @@ app.get('/api/logout', (req, res) => {
             console.error('Error during logout:', err);
             return res.status(500).json({ message: 'Error logging out' });
         }
-        res.redirect('/');
+        res.redirect('/'); // Redirect to homepage after logout
     });
 });
 

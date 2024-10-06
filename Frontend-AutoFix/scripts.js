@@ -66,7 +66,8 @@ async function handleFormSubmission(url, data, type) {
         // Provide feedback and redirect
         alert(result.message); // Assuming the server responds with a message
         if (type === 'login' || type === 'signup') {
-            window.location.href = '/user-dashboard'; // Update this to your dashboard URL
+            // Redirect to the landing page after successful login/signup
+            window.location.href = '/landing-page'; // Updated to match the landing page URL
         }
     } catch (error) {
         alert('An error occurred: ' + error.message);

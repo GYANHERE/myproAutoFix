@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-dashboard</title>
+    <title>AutoFix - Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-
-</style>
 <body>
     <header>
         <div class="header-container">
@@ -25,21 +22,18 @@
                     <li><a href="findmechanic.html">Find Mechanic</a></li>
                     <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
                     <li><a href="customer_support.html">Customer Support</a></li>
-                   
-                    <!-- Login/Logout Button -->
-                    <li><button id="login-signup-button" class="icon-button" onclick="toggleLogin()">Logout</button></li>
+                    <li><button id="login-signup-button" class="icon-button" onclick="toggleLogin()">Login / Sign Up</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-<main>
+    <main>
+      
+    </main>
 
-</main>
-
-
-      <!-- Footer -->
-      <footer>
+    <!-- Footer -->
+    <footer>
         <div class="footer-header">
             <h1>AutoFix</h1>
         </div>
@@ -171,46 +165,45 @@
             </div>
         </div>
     </footer>
-<!-- JavaScript for Modals and Login/Logout -->
-<script src="scripts.js"></script>
-<script>
-    // Simulated login state
-    let isLoggedIn = false; // Change this to true if the user is logged in
 
-    function toggleLogin() {
-        if (isLoggedIn) {
-            logout();
-        } else {
-            login();
+    <!-- JavaScript for Modals and Login/Logout -->
+    <script src="scripts.js"></script>
+    <script>
+        // Simulated login state
+        let isLoggedIn = false; // Change this to true if the user is logged in
+
+        function toggleLogin() {
+            if (isLoggedIn) {
+                logout();
+            } else {
+                login();
+            }
         }
-    }
 
-    function login() {
-        // Simulated login logic
-        isLoggedIn = true;
-        document.getElementById('login-signup-button').innerText = "Logout";
-        alert("Login successful! Redirecting to your dashboard.");
-        // Redirect to the user dashboard
-        window.location.href = "/user-dashboard"; // Updated to match the new route
-    }
-
-    function logout() {
-        // Simulated logout logic
-        isLoggedIn = false;
-        document.getElementById('login-signup-button').innerText = "Login / Sign Up";
-        alert("You have been logged out.");
-        // Optionally redirect to the homepage or another page
-        window.location.href = "index.html"; // Redirect to home page after logout
-    }
-
-    // Update button text based on login state on page load
-    window.onload = function() {
-        if (isLoggedIn) {
+        function login() {
+            // Simulated login logic
+            isLoggedIn = true;
             document.getElementById('login-signup-button').innerText = "Logout";
+            alert("Login successful! Redirecting to your Homepage.");
+            // Redirect to the user dashboard
+            window.location.href = "/landing-page"; // Updated to match the new route
         }
-    };
-</script>
 
-   
+        function logout() {
+            // Simulated logout logic
+            isLoggedIn = false;
+            document.getElementById('login-signup-button').innerText = "Login / Sign Up";
+            alert("You have been logged out.");
+            // Optionally redirect to the homepage or another page
+            window.location.href = "index.html"; // Redirect to home page after logout
+        }
+
+        // Update button text based on login state on page load
+        window.onload = function() {
+            if (isLoggedIn) {
+                document.getElementById('login-signup-button').innerText = "Logout";
+            }
+        };
+    </script>
 </body>
 </html>
