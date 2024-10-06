@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', async function (e) {
             email: loginForm.loginEmail.value,
             password: loginForm.loginPassword.value
         };
-        await handleFormSubmission('http://localhost:3000/login', data, 'login');
+        await handleFormSubmission('/api/login', data, 'login');
     }
 });
 
@@ -22,11 +22,11 @@ signupForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (validateForm(signupForm)) {
         const data = {
-            name: signupForm.signupName.value,
+            username: signupForm.signupName.value, // Corrected key from 'name' to 'username'
             email: signupForm.signupEmail.value,
             password: signupForm.signupPassword.value
         };
-        await handleFormSubmission('http://localhost:3000/signup', data, 'signup');
+        await handleFormSubmission('/api/signup', data, 'signup');
     }
 });
 
@@ -39,11 +39,16 @@ function validateForm(form) {
         alert('Please fill out all fields.');
         return false;
     }
-    // Add additional validation rules as needed
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
     return true;
 }
 
-// Example AJAX function to handle form submission
+// AJAX function to handle form submission
 async function handleFormSubmission(url, data, type) {
     try {
         const response = await fetch(url, {
@@ -58,11 +63,10 @@ async function handleFormSubmission(url, data, type) {
             throw new Error(result.message || 'Network response was not ok');
         }
 
-        if (result.success) {
-            // Redirect to the user dashboard if login or signup was successful
-            window.location.href = '/dashboard.html'; // Update this to your dashboard URL
-        } else {
-            alert(result.message); // Show error message from the backend
+        // Provide feedback and redirect
+        alert(result.message); // Assuming the server responds with a message
+        if (type === 'login' || type === 'signup') {
+            window.location.href = '/user-dashboard'; // Update this to your dashboard URL
         }
     } catch (error) {
         alert('An error occurred: ' + error.message);
@@ -98,61 +102,11 @@ function showLogin() {
     openModal('loginModal');
 }
 
-// Function to simulate finding mechanics based on location
+// Function to find mechanics based on location
 document.getElementById('find-mechanics-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
-
     const location = document.getElementById('location-input').value;
-
-    // Simulating mechanic search (in a real case, you would use an API to get mechanics)
-    const mechanics = [
-        { name: "John's Auto Service", location: location, rating: 4.8 },
-        { name: "Speedy Repair", location: location, rating: 4.5 },
-        { name: "Expert Mechanics", location: location, rating: 4.9 }
-    ];
-
-    const mechanicsListDiv = document.getElementById('mechanics-list');
-    mechanicsListDiv.innerHTML = ''; // Clear previous results
-
-    // Display each mechanic in the list
-    mechanics.forEach(function(mechanic) {
-        const mechanicItem = document.createElement('div');
-        mechanicItem.classList.add('mechanic-item');
-        mechanicItem.innerHTML = `
-            <h3>${mechanic.name}</h3>
-            <p>Location: ${mechanic.location}</p>
-            <p>Rating: ${mechanic.rating} &#9733;</p>
-        `;
-        mechanicsListDiv.appendChild(mechanicItem);
-    });
-});
-
-// Initialize the map
-var map = L.map('map').setView([51.505, -0.09], 13); // Default location (London)
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-// Function to center map on user's current location
-document.getElementById('use-my-location').addEventListener('click', function() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var userLat = position.coords.latitude;
-            var userLng = position.coords.longitude;
-
-            // Center the map on the user's location
-            map.setView([userLat, userLng], 13);
-
-            // Add a marker at the user's location
-            var userMarker = L.marker([userLat, userLng]).addTo(map);
-            userMarker.bindPopup("<b>You are here!</b>").openPopup();
-        }, function() {
-            alert("Geolocation failed. Please allow location access or try again.");
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
+    searchMechanics(location); // Fetch mechanics based on input location
 });
 
 // Function to search mechanics based on location
@@ -192,3 +146,31 @@ function displayMechanicsOnMap(mechanics) {
         marker.bindPopup(`<b>${mechanic.name}</b><br>Rating: ${mechanic.rating}`).openPopup();
     });
 }
+
+// Initialize the map
+var map = L.map('map').setView([51.505, -0.09], 13); // Default location (London)
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Function to center map on user's current location
+document.getElementById('use-my-location').addEventListener('click', function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var userLat = position.coords.latitude;
+            var userLng = position.coords.longitude;
+
+            // Center the map on the user's location
+            map.setView([userLat, userLng], 13);
+
+            // Add a marker at the user's location
+            var userMarker = L.marker([userLat, userLng]).addTo(map);
+            userMarker.bindPopup("<b>You are here!</b>").openPopup();
+        }, function() {
+            alert("Geolocation failed. Please allow location access or try again.");
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+});

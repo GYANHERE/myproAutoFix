@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const bcrypt = require('bcryptjs');
+const session = require('express-session'); // Add express-session
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +12,14 @@ const port = 3000;
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Middleware for session management
+app.use(session({
+    secret: 'yourSecretKey', // Change this to a strong secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 * 60 } // Session will last for 1 hour
+}));
 
 // Serve static files from the Frontend-AutoFix directory
 app.use(express.static(path.join(__dirname, '../Frontend-AutoFix')));
@@ -38,9 +47,13 @@ db.connect((err) => {
     }
 });
 
-// Serve the user dashboard page
+// Serve the user dashboard page (only if user is logged in)
 app.get('/user-dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Frontend-AutoFix/user-dashboard.html'));
+    if (req.session.loggedIn) {
+        res.sendFile(path.join(__dirname, '../Frontend-AutoFix/user-dashboard.html'));
+    } else {
+        res.redirect('/');
+    }
 });
 
 // Serve the index page (root request)
@@ -85,7 +98,7 @@ app.post('/api/signup', (req, res) => {
     });
 });
 
-// Login logic: Validate user credentials
+// Login logic: Validate user credentials and set session
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -103,6 +116,8 @@ app.post('/api/login', (req, res) => {
                     return res.status(500).json({ message: 'Error logging in' });
                 }
                 if (isMatch) {
+                    req.session.loggedIn = true; // Set session loggedIn to true
+                    req.session.user = { id: user.user_id, username: user.username, email: user.email }; // Store user info in session
                     console.log('Login successful:', user);
                     return res.json({ message: 'Login successful', user });
                 }
@@ -111,6 +126,17 @@ app.post('/api/login', (req, res) => {
         } else {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
+    });
+});
+
+// Logout logic: Clear session and redirect to homepage
+app.get('/api/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error during logout:', err);
+            return res.status(500).json({ message: 'Error logging out' });
+        }
+        res.redirect('/');
     });
 });
 
