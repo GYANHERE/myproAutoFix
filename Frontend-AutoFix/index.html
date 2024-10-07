@@ -33,34 +33,46 @@
         </div>
     </header>
     
-    
-   
-        <main>
-          
-            <section id="find-mechanics">
-                <div class="container">
-                    <h2>Find Nearby Mechanics</h2>
-                    <p>Enter your location to find skilled mechanics nearby and get your vehicle serviced quickly.</p>
-                    <!-- Find Mechanics Form -->
-                    <form id="find-mechanics-form" autocomplete="on">
-                        <input type="text" id="location-input" placeholder="Enter your city or ZIP code" required autocomplete="off">
-                        <button type="submit">Find Mechanics</button>
-                        <button type="button" id="use-my-location">Use My Location</button>
-                    </form>
-                  
-                    <!-- Mechanics List -->
-                    <div id="mechanics-list">
-                        <!-- List of mechanics will be displayed here after search -->
+    <main>
+        <section id="hero-banner">
+            <div id="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="mechanic1.jpg" class="slide-image" alt="Mechanic Working on a Car">
+                    <div class="text-overlay">
+                        <h1>Welcome to AutoFix!</h1>
+                        <p>Your trusted solution for finding the best mechanics.</p>
                     </div>
-                    
-                     <!-- Map Container -->
-            <div id="map" style="height: 500px;"></div>
                 </div>
-            </section>
-        
-            
-                        
-        </main>
+    
+                <div class="mySlides fade">
+                    <img src="mechanic2.jpg" class="slide-image" alt="Customer Satisfaction Guaranteed">
+                    <div class="text-overlay">
+                        <h1>Welcome to AutoFix!</h1>
+                        <p>Your trusted solution for finding the best mechanics.</p>
+                    </div>
+                </div>
+    
+                <div class="mySlides fade">
+                    <img src="mechanic3.jpg" class="slide-image" alt="Expert Mechanics at Your Service">
+                    <div class="text-overlay">
+                        <h1>Welcome to AutoFix!</h1>
+                        <p>Your trusted solution for finding the best mechanics.</p>
+                    </div>
+                </div>
+    
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </section>
+    
+        <section id="content-info">
+            <h2>Why Choose AutoFix?</h2>
+            <p>At AutoFix, we understand that finding a reliable mechanic can be a challenge. Our platform connects you with skilled mechanics who are ready to assist you, ensuring your vehicle gets the care it needs.</p>
+            <p>Join our community today and enjoy peace of mind knowing that expert help is just a click away!</p>
+        </section>
+    </main>
+    
+      
 
         <section id="about-us">
             <div class="about-container">
@@ -344,6 +356,37 @@
             openModal('loginModal');
         }
     });
+
+    let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex - 1].style.display = "block";  
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+function plusSlides(n) {
+    slideIndex += n;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    if (slideIndex < 1) {slideIndex = slides.length}
+    showSlidesManual(slideIndex);
+}
+
+function showSlidesManual(index) {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[index - 1].style.display = "block";  
+}
 </script>
 
     <!-- Closing body tag -->

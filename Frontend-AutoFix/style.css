@@ -7,14 +7,14 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: rgb(247, 243, 243);
+    background-color: #121212;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    height: 100px; /* Adjust height as needed */
+    height: 60px; /* Adjust height as needed */
 }
 
 .header-container {
@@ -63,6 +63,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -191,7 +192,7 @@ nav ul li {
 
 /* Footer Styling */
 footer {
-    background-color: #333;
+    background-color: #121212;
     color: white;
     padding: 20px;
     display: flex;
@@ -677,4 +678,89 @@ form button:hover {
 
 #form-toggle a:hover {
     text-decoration: underline;
+}
+/* General styles for the main section */
+main {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Hero banner styles */
+#hero-banner {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* Full height */
+}
+
+#slideshow-container {
+    position: relative;
+    height: 100%; /* Full height */
+}
+
+.slide-image {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Cover the entire section */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white; /* Text color */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some padding */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+}
+
+h1 {
+    font-size: 3rem; /* Large heading */
+    margin: 0; /* Remove default margin */
+}
+
+p {
+    font-size: 1.5rem; /* Adjust paragraph size */
+    margin: 0; /* Remove default margin */
+}
+
+/* Styles for navigation arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; /* Prevent selection */
+    z-index: 10; /* Keep above other elements */
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background on hover */
+}
+
+/* Fade effect for the slides */
+.mySlides {
+    display: none; /* Hide all slides by default */
+}
+
+.fade {
+    animation: fade 1.5s; /* Fade animation */
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
 }
