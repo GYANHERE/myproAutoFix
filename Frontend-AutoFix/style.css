@@ -860,52 +860,51 @@ p {
     color: #555;
     line-height: 1.6;
 }
-/* CSS for the Testimonials Section */
 #testimonials {
-    background-color: #f4f4f4; /* Light background color */
-    padding: 60px 20px;
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 40px;
     text-align: center;
-    font-family: 'Arial', sans-serif;
-    border-radius: 10px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 5%;
 }
 
 #testimonials h2 {
     font-size: 2.5em;
-    color: #333; /* Dark gray for the heading */
-    margin-bottom: 40px;
-    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue color for heading */
 }
 
 .testimonial {
-    background-color: #fff; /* White background for each testimonial */
+    background-color: #ffffff; /* White background for testimonials */
+    border: 2px solid #007bff; /* Blue border */
     border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Soft shadow */
+    padding: 20px;
+    margin: 20px auto; /* Centering the testimonials */
+    max-width: 600px; /* Limiting width */
+    transition: transform 0.3s; /* Smooth scaling on hover */
+    
 }
 
 .testimonial:hover {
-    transform: scale(1.03); /* Slight zoom effect on hover */
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02); /* Slightly scale up on hover */
 }
 
 .testimonial p {
+    font-style: italic;
     font-size: 1.2em;
-    color: #555; /* Dark gray for testimonial text */
-    line-height: 1.5;
+    color: #333; /* Dark gray for text */
     margin-bottom: 10px;
 }
 
 .testimonial span {
+    display: block;
     font-size: 1em;
-    color: #007BFF; /* Bright color for the name */
-    font-weight: bold; /* Bold name for emphasis */
+    color: #007bff; /* Blue color for names */
+    font-weight: bold; /* Bold name */
 }
+
+
+
 /* CSS for the How It Works Section */
 #how-it-works {
     background-color: #ffffff; /* White background for clarity */
