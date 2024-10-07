@@ -29,9 +29,11 @@ header {
 }
 
 .logo h1 {
-    margin: 0;
-    font-size: 24px;
     color: white;
+    text-decoration: none;
+    font-size: 30px;
+    transition: color 0.3s ease;
+    font-weight: bold;
 }
 
 .icon-button {
@@ -68,7 +70,7 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #28a745; /* Green color on hover */
-    text-decoration: underline;
+   text-decoration: solid;
 }
 
 @media (max-width: 768px) {
@@ -557,12 +559,13 @@ footer {
 .icon-button {
     background: none;
     border: none;
-    color: white; /* Icon color */
+    color: #121212; /* Icon color */
     font-size: 24px; /* Adjust icon size */
     cursor: pointer;
     border-radius: 5px; /* Ensure the border radius is consistent */
     padding: 10px 20px; /* Apply padding if necessary */
-    background-color: #28a745; /* Use the same background color as defined */
+    background-color: #feffff; /* Use the same background color as defined */
+    font-weight: bold;
 }
 /* Modal Container */
 .modal {
@@ -763,4 +766,38 @@ p {
 @keyframes fade {
     from { opacity: 0.4; }
     to { opacity: 1; }
+}
+/* Styles for the content-info section */
+#content-info {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 40px; /* Space inside the section */
+    margin: 30px auto; /* Space outside the section and center alignment */
+    max-width: 1100px; /* Limit the width for better readability */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a subtle lift effect */
+    text-align: center; /* Center the text */
+    font-weight: bold;
+}
+
+/* Styles for the heading */
+#content-info h2 {
+    font-size: 2rem; /* Larger font size for the heading */
+    color: #007BFF; /* Blue color to match the theme */
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: bold;
+}
+
+/* Styles for the paragraphs */
+#content-info p {
+    font-size: 1.1rem; /* Slightly larger font size for better readability */
+    color: #555; /* Dark gray color for the text */
+    line-height: 1.6; /* Improved line spacing */
+    margin-bottom: 15px; /* Space below each paragraph */
+}
+
+/* Add a subtle border line between paragraphs for separation */
+#content-info p:not(:last-of-type) {
+    border-bottom: 1px solid #ddd; /* Light gray border */
+    padding-bottom: 10px; /* Space below the border */
+    margin-bottom: 20px; /* Additional margin after the border */
 }
