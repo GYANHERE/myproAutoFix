@@ -64,13 +64,25 @@ async function handleFormSubmission(url, data, type) {
 
         // Store user session in localStorage
         localStorage.setItem('userSession', JSON.stringify(result.user));
+        localStorage.setItem('isLoggedIn', 'true');
 
         alert(result.message);
         if (type === 'login' || type === 'signup') {
+            updateLoginButton();
             window.location.href = '/landing-page';
         }
     } catch (error) {
         alert('An error occurred: ' + error.message);
+    }
+}
+
+// Function to update the login button state
+function updateLoginButton() {
+    const loginButton = document.getElementById('login-signup-button');
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        loginButton.innerText = "Logout";
+    } else {
+        loginButton.innerText = "Login / Sign Up";
     }
 }
 
@@ -88,7 +100,15 @@ function closeModal(modalId) {
 
 // Show login modal
 document.getElementById('login-signup-button').addEventListener('click', function () {
-    openModal('loginModal');
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        // Logout logic
+        localStorage.removeItem('userSession');
+        localStorage.setItem('isLoggedIn', 'false');
+        updateLoginButton();
+        alert("Logout successful!");
+    } else {
+        openModal('loginModal');
+    }
 });
 
 // Show signup modal
@@ -102,10 +122,14 @@ function showLogin() {
     closeModal('signupModal');
     openModal('loginModal');
 }
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Check user session on page load
+    updateLoginButton();
+
     // Check for restricted navigation clicks
-    document.querySelectorAll('.restricted-nav').forEach(function(navLink) {
-        navLink.addEventListener('click', function(event) {
+    document.querySelectorAll('.restricted-nav').forEach(function (navLink) {
+        navLink.addEventListener('click', function (event) {
             // Check if the user is logged in
             if (!localStorage.getItem('isLoggedIn') || localStorage.getItem('isLoggedIn') === 'false') {
                 // Prevent default navigation
@@ -116,23 +140,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// Open a modal function
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'flex';
-    document.getElementById(modalId).classList.add('show');
+// Show signup modal
+function showSignup() {
+    closeModal('loginModal'); // Ensure the login modal is closed
+    openModal('signupModal'); // Open the signup modal
 }
-
-// Close a modal function
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.getElementById(modalId).classList.remove('show');
-}
-function login() {
-    // Simulated login logic
-    localStorage.setItem('isLoggedIn', 'true');
-    document.getElementById('login-signup-button').innerText = "Logout";
-    closeModal('loginModal'); // Close the modal after successful login
-    alert("Login successful! Welcome to AutoFix.");
-}
-

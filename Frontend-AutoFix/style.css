@@ -801,3 +801,220 @@ p {
     padding-bottom: 10px; /* Space below the border */
     margin-bottom: 20px; /* Additional margin after the border */
 }
+/* CSS for the Services Section */
+#services {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#services h2 {
+    font-size: 2.5em;
+    color: #333; /* Dark gray for a professional look */
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.service-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-box img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.service-box h3 {
+    font-size: 1.5em;
+    color: #007BFF; /* Bright color for emphasis */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.service-box p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+}
+/* CSS for the Testimonials Section */
+#testimonials {
+    background-color: #f4f4f4; /* Light background color */
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#testimonials h2 {
+    font-size: 2.5em;
+    color: #333; /* Dark gray for the heading */
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.testimonial {
+    background-color: #fff; /* White background for each testimonial */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.testimonial:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial p {
+    font-size: 1.2em;
+    color: #555; /* Dark gray for testimonial text */
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.testimonial span {
+    font-size: 1em;
+    color: #007BFF; /* Bright color for the name */
+    font-weight: bold; /* Bold name for emphasis */
+}
+/* CSS for the How It Works Section */
+#how-it-works {
+    background-color: #ffffff; /* White background for clarity */
+    padding: 60px 20px; /* Space around the section */
+    text-align: center; /* Centered text */
+    font-family: 'Arial', sans-serif; /* Font style */
+    max-width: 1200px; /* Max width to align with other sections */
+    margin: 0 auto; /* Center the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin-top: 50px; /* Space from previous section */
+}
+
+#how-it-works h2 {
+    font-size: 2.5em; /* Larger heading */
+    color: #333; /* Dark gray color */
+    margin-bottom: 40px; /* Space below heading */
+    font-weight: bold; /* Bold heading */
+}
+
+.steps-container {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: space-around; /* Space between items */
+    flex-wrap: wrap; /* Wrap items on smaller screens */
+}
+
+.step-box {
+    background-color: #f9f9f9; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px; /* Padding inside the box */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin: 20px; /* Space between boxes */
+    flex: 1 1 30%; /* Flex properties to control size */
+    max-width: 300px; /* Max width for each step box */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effect */
+}
+
+.step-box:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.step-box img {
+    width: 50px; /* Set a fixed width for icons */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px; /* Space between icon and text */
+}
+
+.step-box h3 {
+    font-size: 1.5em; /* Heading size for steps */
+    color: #007BFF; /* Blue color for headings */
+    margin: 15px 0; /* Space above and below headings */
+}
+
+.step-box p {
+    font-size: 1em; /* Normal font size */
+    color: #555; /* Dark gray color for text */
+    line-height: 1.5; /* Spacing between lines */
+}
+/* CSS for the Call to Action Section */
+#cta {
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%); /* Gradient background */
+    color: white; /* White text color */
+    padding: 60px 20px; /* Padding around the section */
+    text-align: center; /* Center text */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative; /* Position for pseudo-element */
+    margin-top: 50px; /* Space from previous section */
+}
+
+#cta h2 {
+    font-size: 2.5em; /* Larger heading */
+    margin-bottom: 15px; /* Space below heading */
+    font-weight: bold; /* Bold heading */
+}
+
+#cta p {
+    font-size: 1.2em; /* Slightly larger text */
+    margin-bottom: 30px; /* Space below paragraph */
+}
+
+/* Button styles */
+#cta button {
+    background-color: #FFD700; /* Gold background for button */
+    color: #333; /* Dark text color for contrast */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded button corners */
+    padding: 15px 30px; /* Button padding */
+    font-size: 1.2em; /* Button text size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Animation for hover effect */
+}
+
+#cta button:hover {
+    background-color: #FFC107; /* Lighter gold on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Decorative Elements */
+#cta::before {
+    content: ""; /* Empty content for pseudo-element */
+    position: absolute; /* Positioning */
+    top: -50px; /* Move up above section */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center */
+    width: 80%; /* Width of the decorative element */
+    height: 80px; /* Height of the decorative element */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-radius: 50%; /* Circular shape */
+    z-index: 0; /* Behind the content */
+}
