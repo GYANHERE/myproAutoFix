@@ -7,76 +7,47 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-    .booking-container {
+    #hero-banner {
+    background-color: #f8f9fa;
+    padding: 40px;
     text-align: center;
-    margin: 50px 0;
 }
 
-#location-input {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-    margin-right: 10px;
+#hero-banner h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
-#book-mechanic-button {
-    padding: 10px 20px;
-    font-size: 16px;
+#hero-banner p {
+    font-size: 1.2em;
+}
+
+.promotion {
+    font-weight: bold;
+    color: red;
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
     background-color: #007bff;
     color: white;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
 }
 
-#book-mechanic-button:hover {
+.cta-button:hover {
     background-color: #0056b3;
 }
-.vehicle-selection-container {
-    text-align: center;
-    margin: 50px 0;
+.button-container {
+    text-align: center; /* Center the button horizontally */
+    margin: 40px 0; /* Add spacing above and below the button */
 }
 
-.vehicle-selection-container div {
-    margin: 10px 0;
-}
-.company-model-selection-container {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.company-model-selection-container label {
-    display: block;
-    margin: 10px 0;
-}
-.issue-selection-container {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.issue-selection-container label {
-    display: block;
-    margin: 10px 0;
-}
-.mechanics-list-container {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.mechanics-list-container ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.mechanics-list-container li {
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.mechanics-list-container button {
-    margin-top: 10px;
-}
 
 
 
@@ -104,100 +75,18 @@
 
     </header>
 
-        <main>
-            <div class="booking-container">
-                <h2>Book a Mechanic</h2>
-                <input type="text" id="location-input" placeholder="Enter your location" required>
-                <button id="book-mechanic-button" onclick="handleLocationSubmit()">Book Mechanic</button>
+    <main>
+        <section id="hero-banner">
+            <h1>Welcome to AutoFix!</h1>
+            <p>Find the perfect mechanic for your vehicle.</p>
+            <p class="promotion">20% Off Your First Booking!</p>
+            <a href="#location-section" class="cta-button">Book Now</a>
+        </section>
+    
+  
 
-            </div>
-            <div id="vehicle-selection" class="vehicle-selection-container" style="display: none;">
-                <h2>Select Your Vehicle</h2>
-                <div>
-                    <label>
-                        <input type="radio" name="vehicle" value="Car"> Car
-                    </label>
-                    <label>
-                        <input type="radio" name="vehicle" value="Bike"> Bike
-                    </label>
-                    <label>
-                        <input type="radio" name="vehicle" value="Scooter"> Scooter
-                    </label>
-                    <label>
-                        <input type="radio" name="vehicle" value="Bullet"> Bullet
-                    </label>
-                </div>
-                <button id="next-button" style="margin-top: 10px;">Next</button>
-            </div>
-
-            <div id="company-model-selection" class="company-model-selection-container" style="display: none;">
-                <h2>Select Company and Model</h2>
-                <label for="company-select">Choose a Company:</label>
-                <select id="company-select" required>
-                    <option value="">Select Company</option>
-                </select>
-                
-                <label for="model-select">Choose a Model:</label>
-                <select id="model-select" required>
-                    <option value="">Select Model</option>
-                </select>
-                
-                <button id="next-step-button" style="margin-top: 10px;">Next</button>
-            </div>
-            <div id="issue-selection" class="issue-selection-container" style="display: none;">
-                <h2>Select Issues</h2>
-                <label>Select the issue(s) with your vehicle:</label>
-                
-                <div>
-                    <input type="checkbox" id="engine-issues" value="Engine Issues">
-                    <label for="engine-issues">Engine Issues</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="battery-problems" value="Battery Problems">
-                    <label for="battery-problems">Battery Problems</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="tire-issues" value="Tire Issues">
-                    <label for="tire-issues">Tire Issues</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="braking-problems" value="Braking Problems">
-                    <label for="braking-problems">Braking Problems</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="transmission-issues" value="Transmission Issues">
-                    <label for="transmission-issues">Transmission Issues</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="fuel-system-problems" value="Fuel System Problems">
-                    <label for="fuel-system-problems">Fuel System Problems</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="electrical-issues" value="Electrical System Failures">
-                    <label for="electrical-issues">Electrical System Failures</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="suspension-issues" value="Suspension Issues">
-                    <label for="suspension-issues">Suspension Issues</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="maintenance-neglect" value="Regular Maintenance Neglect">
-                    <label for="maintenance-neglect">Regular Maintenance Neglect</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="weather-related-issues" value="Weather-Related Issues">
-                    <label for="weather-related-issues">Weather-Related Issues</label>
-                </div>
-                
-                <button id="next-step-issues" style="margin-top: 10px;">Find Mechanics</button>
-            </div>
-            <div id="mechanics-list" class="mechanics-list-container" style="display: none;">
-                <h2>Nearby Mechanics</h2>
-                <ul id="mechanics"></ul>
-            </div>
-            
-            
-        </main>
+    </main>
+    
 
 
     <!-- Footer -->
@@ -334,43 +223,46 @@
         </div>
     </footer>
     <!-- JavaScript for Modals and Login/Logout -->
+        <script>
+    // Check login state from localStorage
+    let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    function toggleLogin() {
+        if (isLoggedIn) {
+            logout();
+        } else {
+            login();
+        }
+    }
+
+    function login() {
+        // Simulated login logic
+        isLoggedIn = true;
+        localStorage.setItem('isLoggedIn', 'true'); // Store login state
+        document.getElementById('login-signup-button').innerText = "Logout"; // Change button text
+        alert("Login successful! Welcome to AutoFix.");
+    }
+
+    function logout() {
+        // Simulated logout logic
+        isLoggedIn = false;
+        localStorage.setItem('isLoggedIn', 'false'); // Clear login state
+        document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Change button text back
+        alert("You have been logged out.");
+        // Optionally redirect to index.html after logout
+        window.location.href = "index.html"; // Redirect to index.html
+    }
+
+    // Update button text based on login state on page load
+    window.onload = function() {
+        if (isLoggedIn) {
+            document.getElementById('login-signup-button').innerText = "Logout"; // Change to Logout if logged in
+        }
+    };
+</script>
+
     <script src="scripts.js"></script>
-    <script>
-        // Simulated login state
-        let isLoggedIn = false; // Change this to true if the user is logged in
-
-        function toggleLogin() {
-            if (isLoggedIn) {
-                logout();
-            } else {
-                login();
-            }
-        }
-
-        function login() {
-            // Simulated login logic
-            isLoggedIn = true;
-            document.getElementById('login-signup-button').innerText = "Logout"; // Change button text
-            alert("Login successful! Welcome to AutoFix.");
-            // No redirect needed, stays on landing page
-        }
-
-        function logout() {
-            // Simulated logout logic
-            isLoggedIn = false;
-            document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Change button text back
-            alert("You have been logged out.");
-            // Redirect to home page after logout
-            window.location.href = "index.html"; // Redirect to index.html
-        }
-
-        // Update button text based on login state on page load
-        window.onload = function() {
-            if (isLoggedIn) {
-                document.getElementById('login-signup-button').innerText = "Logout"; // Change to Logout if logged in
-            }
-        };
-    </script>
+    
 
    
 </body>

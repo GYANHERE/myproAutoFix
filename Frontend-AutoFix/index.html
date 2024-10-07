@@ -22,9 +22,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="findmechanic.html">Find Mechanic</a></li>
-                    <li><a href="became_Mechanic.html">Become a Mechanic</a></li>
-                    <li><a href="customer_support.html">Customer Support</a></li>
+                    <li><a href="findmechanic.html" class="restricted-nav">Find Mechanic</a></li>
+                    <li><a href="became_Mechanic.html" class="restricted-nav">Become a Mechanic</a></li>
+                    <li><a href="customer_support.html" >Customer Support</a></li>
                     <li><a href="about_us.html">About Us</a></li>
                      <!-- Login/Sign Up Button -->
             <li><button id="login-signup-button" class="icon-button">Login / Sign Up</button></li>
@@ -315,6 +315,34 @@
         .catch((error) => {
             console.error('Error:', error);
         });
+    });
+</script>
+<script>
+    // Check login state from localStorage on page load
+    window.onload = function() {
+        const userSession = JSON.parse(localStorage.getItem('userSession'));
+        if (userSession) {
+            document.getElementById('login-signup-button').innerText = "Logout"; // Update to Logout if logged in
+            isLoggedIn = true;
+        }
+    };
+
+    // Logout function
+    function logout() {
+        localStorage.removeItem('userSession'); // Remove session from localStorage
+        isLoggedIn = false;
+        document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Reset button text
+        alert("You have been logged out.");
+        window.location.href = "index.html"; // Redirect to home page
+    }
+
+    // Toggle login/logout
+    document.getElementById('login-signup-button').addEventListener('click', function () {
+        if (isLoggedIn) {
+            logout();
+        } else {
+            openModal('loginModal');
+        }
     });
 </script>
 

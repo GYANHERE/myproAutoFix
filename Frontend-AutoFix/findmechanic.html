@@ -236,61 +236,62 @@ body {
 </div>
  <!-- Include your JavaScript here -->
  <script>
-    document.getElementById('signupForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+    // Check login state from localStorage on page load
+    window.onload = function() {
+        const userSession = JSON.parse(localStorage.getItem('userSession'));
+        if (userSession) {
+            document.getElementById('login-signup-button').innerText = "Logout"; // Update to Logout if logged in
+            isLoggedIn = true;
+        }
+    };
 
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+    // Logout function
+    function logout() {
+        localStorage.removeItem('userSession'); // Remove session from localStorage
+        isLoggedIn = false;
+        document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Reset button text
+        alert("You have been logged out.");
+        window.location.href = "index.html"; // Redirect to home page
+    }
 
-        fetch('http://localhost:3000/api/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert(data.message);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    // Toggle login/logout
+    document.getElementById('login-signup-button').addEventListener('click', function () {
+        if (isLoggedIn) {
+            logout();
+        } else {
+            openModal('loginModal');
+        }
     });
 </script>
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+    // Check login state from localStorage on page load
+    window.onload = function() {
+        const userSession = JSON.parse(localStorage.getItem('userSession'));
+        if (userSession) {
+            document.getElementById('login-signup-button').innerText = "Logout"; // Update to Logout if logged in
+            isLoggedIn = true;
+        }
+    };
 
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
+    // Logout function
+    function logout() {
+        localStorage.removeItem('userSession'); // Remove session from localStorage
+        isLoggedIn = false;
+        document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Reset button text
+        alert("You have been logged out.");
+        window.location.href = "index.html"; // Redirect to home page
+    }
 
-        fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            if (data.message === 'Login successful') {
-                // Redirect to the home page after successful login
-                window.location.href = '/home.html';
-            } else {
-                alert('Invalid credentials');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    // Toggle login/logout
+    document.getElementById('login-signup-button').addEventListener('click', function () {
+        if (isLoggedIn) {
+            logout();
+        } else {
+            openModal('loginModal');
+        }
     });
 </script>
 
-    <!-- Closing body tag -->
 
         
 

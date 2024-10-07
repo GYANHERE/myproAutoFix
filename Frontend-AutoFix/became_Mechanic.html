@@ -266,34 +266,47 @@ body {
     });
 </script>
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+    // Check login state from localStorage
+    let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
+    // Update button text based on login state on page load
+    window.onload = function() {
+        if (isLoggedIn) {
+            document.getElementById('login-signup-button').innerText = "Logout"; // Change to Logout if logged in
+        } else {
+            document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Change to Login / Sign Up if not logged in
+        }
+    };
+</script>
+<script>
+    // Check login state from localStorage on page load
+    window.onload = function() {
+        const userSession = JSON.parse(localStorage.getItem('userSession'));
+        if (userSession) {
+            document.getElementById('login-signup-button').innerText = "Logout"; // Update to Logout if logged in
+            isLoggedIn = true;
+        }
+    };
 
-        fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            if (data.message === 'Login successful') {
-                // Redirect to the home page after successful login
-                window.location.href = '/home.html';
-            } else {
-                alert('Invalid credentials');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    // Logout function
+    function logout() {
+        localStorage.removeItem('userSession'); // Remove session from localStorage
+        isLoggedIn = false;
+        document.getElementById('login-signup-button').innerText = "Login / Sign Up"; // Reset button text
+        alert("You have been logged out.");
+        window.location.href = "index.html"; // Redirect to home page
+    }
+
+    // Toggle login/logout
+    document.getElementById('login-signup-button').addEventListener('click', function () {
+        if (isLoggedIn) {
+            logout();
+        } else {
+            openModal('loginModal');
+        }
     });
 </script>
+
 
     <!-- Closing body tag -->
 
